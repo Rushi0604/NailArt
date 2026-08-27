@@ -386,60 +386,10 @@ Please confirm my appointment slot. Thank you!`;
           </div>
         </section>
 
-        <section className="intro section" id="studio">
-          <div className="section-label">01 / The studio</div>
-          <div className="intro-content">
-            <div>
-              <h2>Beautiful nails,<br /><i>just for you.</i></h2>
-              <div className="studio-stats">
-                <div className="stat-item">
-                  <strong>500+</strong>
-                  <span>Custom Sets</span>
-                </div>
-                <div className="stat-item">
-                  <strong>4.9 ★</strong>
-                  <span>Client Rating</span>
-                </div>
-                <div className="stat-item">
-                  <strong>100%</strong>
-                  <span>Cruelty-Free</span>
-                </div>
-              </div>
-            </div>
-            <div>
-              <p>I believe nail art should feel like you — polished, comfortable and a little bit special. From clean everyday sets to statement designs, every appointment is a chance to create something you'll love looking at.</p>
-              <p style={{ marginTop: "14px", fontSize: "14px", color: "var(--muted)" }}>
-                Each set is crafted in a peaceful, private studio environment using medical-grade hygiene and non-toxic, long-lasting gels.
-              </p>
-              <button className="text-btn" style={{ marginTop: "20px" }} onClick={() => scrollTo("about")}>
-                Meet your nail artist <ArrowRight size={17} />
-              </button>
-            </div>
-          </div>
-
-          <div className="studio-features-grid">
-            <div className="feature-card">
-              <div className="feature-icon"><Sparkles size={20} /></div>
-              <h3>Non-Toxic Gels</h3>
-              <p>Premium, 10-free vegan polishes that nourish and protect your natural nails.</p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon"><ShieldCheck size={20} /></div>
-              <h3>Sterile & Hygienic</h3>
-              <p>Autoclave medical-grade tool sterilization for absolute safety and peace of mind.</p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon"><Heart size={20} /></div>
-              <h3>1-on-1 Dedicated Care</h3>
-              <p>Private, unhurried appointment slots focused 100% on your hands and comfort.</p>
-            </div>
-          </div>
-        </section>
-
         <section className="work section" id="work">
           <div className="section-head">
             <div>
-              <div className="section-label">02 / Portfolio</div>
+              <div className="section-label">01 / Portfolio</div>
               <h2>A few favourites</h2>
             </div>
             <p>Browse the latest sets and find a style that feels like you.</p>
@@ -465,7 +415,7 @@ Please confirm my appointment slot. Thank you!`;
         <section className="services section" id="services">
           <div className="section-head">
             <div>
-              <div className="section-label">03 / Services</div>
+              <div className="section-label">02 / Services</div>
               <h2>Choose your set</h2>
             </div>
             <p>Prices are starting prices. Custom designs are quoted based on detail.</p>
@@ -490,7 +440,7 @@ Please confirm my appointment slot. Thank you!`;
             <img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=1000&q=90" alt="Nail art close-up" />
           </div>
           <div className="about-copy">
-            <div className="section-label">04 / About</div>
+            <div className="section-label">03 / About</div>
             <h2>Hi, I'm your<br /><i>nail artist.</i></h2>
             <p>What started as a love for tiny details became a little studio where creativity, calm and good conversation come together.</p>
             <p>I specialise in soft, feminine nail art, but I love creating something completely different when inspiration strikes.</p>
@@ -501,7 +451,7 @@ Please confirm my appointment slot. Thank you!`;
 
         <section className="contact section" id="contact">
           <div>
-            <div className="section-label">05 / Contact</div>
+            <div className="section-label">04 / Contact</div>
             <h2>Ready for your<br /><i>next set?</i></h2>
             <p>Appointments are available by booking. For quick questions, message me directly.</p>
           </div>
