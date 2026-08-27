@@ -67,7 +67,17 @@ const defaultServices = [
   { id: "3", name: "Nail Extensions", price: "₹1,299", text: "Elegant extensions shaped to complement your hands." },
   { id: "4", name: "Custom Nail Art", price: "₹999+", text: "A personalised design created around your style." },
   { id: "5", name: "Bridal Nails", price: "₹1,499+", text: "Pearls, shimmer and delicate details for your special day." },
-  { id: "6", name: "Removal + Care", price: "₹299", text: "Gentle removal followed by nourishing nail care." }
+  { id: "6", name: "Removal + Care", price: "₹299", text: "Gentle removal followed by nourishing nail care." },
+  { id: "7", name: "BIAB Gel Overlay", price: "₹999", text: "Strong protective Builder-in-a-Bottle gel layer to nourish & lengthen natural nails." },
+  { id: "8", name: "Cat Eye Magnetic Gel", price: "₹1,199", text: "Mesmerizing 3D velvet shimmer effect created with magnetic gel polish." },
+  { id: "9", name: "Chrome Illusion", price: "₹1,099", text: "Ultra-reflective mirror chrome powder finish in silver, rose gold, or pearl." },
+  { id: "10", name: "French Tip Extensions", price: "₹1,499", text: "Timeless white, pastel, or deep accent French tips extended with gel or acrylic." },
+  { id: "11", name: "Express Polish Change", price: "₹599", text: "Quick nail shape, buffing, and fresh long-wear gel polish application." },
+  { id: "12", name: "Russian Dry Manicure", price: "₹899", text: "Precision e-file cuticle detailing for seamless, flawless polish alignment." },
+  { id: "13", name: "Luxury Hand Spa & Polish", price: "₹799", text: "Exfoliating botanical scrub, intense hydrating mask, relaxing massage & finish." },
+  { id: "14", name: "Nail Repair & Structuring", price: "₹199/nail", text: "Seamless repair for broken, split, or damaged natural nails." },
+  { id: "15", name: "Ombre Airbrush", price: "₹1,299", text: "Ultra-smooth gradient color transitions applied with micro airbrush technology." },
+  { id: "16", name: "Press-On Application & Prep", price: "₹699", text: "Professional nail sizing, prep, and long-wear adhesive application for custom press-ons." }
 ];
 
 const getSavedData = (key, fallback) => {

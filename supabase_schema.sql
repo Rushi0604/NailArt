@@ -114,5 +114,15 @@ INSERT INTO public.services (id, name, price, text) VALUES
   ('3', 'Nail Extensions', '₹1,299', 'Elegant extensions shaped to complement your hands.'),
   ('4', 'Custom Nail Art', '₹999+', 'A personalised design created around your style.'),
   ('5', 'Bridal Nails', '₹1,499+', 'Pearls, shimmer and delicate details for your special day.'),
-  ('6', 'Removal + Care', '₹299', 'Gentle removal followed by nourishing nail care.')
+  ('6', 'Removal + Care', '₹299', 'Gentle removal followed by nourishing nail care.'),
+  ('7', 'BIAB Gel Overlay', '₹999', 'Strong protective Builder-in-a-Bottle gel layer to nourish & lengthen natural nails.'),
+  ('8', 'Cat Eye Magnetic Gel', '₹1,199', 'Mesmerizing 3D velvet shimmer effect created with magnetic gel polish.'),
+  ('9', 'Chrome Illusion', '₹1,099', 'Ultra-reflective mirror chrome powder finish in silver, rose gold, or pearl.'),
+  ('10', 'French Tip Extensions', '₹1,499', 'Timeless white, pastel, or deep accent French tips extended with gel or acrylic.'),
+  ('11', 'Express Polish Change', '₹599', 'Quick nail shape, buffing, and fresh long-wear gel polish application.'),
+  ('12', 'Russian Dry Manicure', '₹899', 'Precision e-file cuticle detailing for seamless, flawless polish alignment.'),
+  ('13', 'Luxury Hand Spa & Polish', '₹799', 'Exfoliating botanical scrub, intense hydrating mask, relaxing massage & finish.'),
+  ('14', 'Nail Repair & Structuring', '₹199/nail', 'Seamless repair for broken, split, or damaged natural nails.'),
+  ('15', 'Ombre Airbrush', '₹1,299', 'Ultra-smooth gradient color transitions applied with micro airbrush technology.'),
+  ('16', 'Press-On Application & Prep', '₹699', 'Professional nail sizing, prep, and long-wear adhesive application for custom press-ons.')
 ON CONFLICT (id) DO NOTHING;
