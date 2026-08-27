@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: './', // Use relative base path for GitHub Pages subfolder compatibility
+  base: '/NailArt/', // Exact GitHub repository name for GitHub Pages deployment
   build: {
     outDir: 'dist',
   },
