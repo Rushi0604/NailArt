@@ -8,78 +8,6 @@ import {
 import "./styles.css";
 import { supabase } from "./supabaseClient";
 
-const defaultGallery = [
-  { id: "1", title: "Blush Pearl", category: "Luxury", image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=900&q=85" },
-  { id: "2", title: "French Bloom", category: "Floral", image: "https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=900&q=85" },
-  { id: "3", title: "Soft Nude", category: "Simple", image: "https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=900&q=85" },
-  { id: "4", title: "Rose Detail", category: "Floral", image: "https://images.unsplash.com/photo-1607779097040-26e80aa78e66?auto=format&fit=crop&w=900&q=85" },
-  { id: "5", title: "Bridal Pearl", category: "Bridal", image: "https://images.unsplash.com/photo-1610992015762-45dca7c1a0b8?auto=format&fit=crop&w=900&q=85" },
-  { id: "6", title: "Cherry Charm", category: "Cute", image: "https://images.unsplash.com/photo-1601924928376-7e4b5a1e4c8f?auto=format&fit=crop&w=900&q=85" },
-  { id: "7", title: "Midnight Gloss", category: "Custom", image: "https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=900&q=85" },
-  { id: "8", title: "Clean Girl", category: "Simple", image: "https://images.unsplash.com/photo-1639024471283-03518883512d?auto=format&fit=crop&w=900&q=85" },
-  { id: "9", title: "Velvet Champagne", category: "Luxury", image: "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=900&q=85" },
-  { id: "10", title: "Glazed Donut", category: "Chrome", image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=85" },
-  { id: "11", title: "Emerald Luxe", category: "Luxury", image: "https://images.unsplash.com/photo-1599847996307-e37b46842399?auto=format&fit=crop&w=900&q=85" },
-  { id: "12", title: "Rose Gold Shimmer", category: "Glitter", image: "https://images.unsplash.com/photo-1583001931096-959e9a1a6223?auto=format&fit=crop&w=900&q=85" },
-  { id: "13", title: "Lavender Mist", category: "Ombre", image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=900&q=85" },
-  { id: "14", title: "Abstract Swirl", category: "Custom", image: "https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=900&q=85" },
-  { id: "15", title: "Golden Hour", category: "Glitter", image: "https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=900&q=85" },
-  { id: "16", title: "Peachy Keen", category: "Cute", image: "https://images.unsplash.com/photo-1607779097040-26e80aa78e66?auto=format&fit=crop&w=900&q=85" },
-  { id: "17", title: "Milky Way", category: "Minimal", image: "https://images.unsplash.com/photo-1610992015762-45dca7c1a0b8?auto=format&fit=crop&w=900&q=85" },
-  { id: "18", title: "Ruby Velvet", category: "Luxury", image: "https://images.unsplash.com/photo-1601924928376-7e4b5a1e4c8f?auto=format&fit=crop&w=900&q=85" },
-  { id: "19", title: "Celestial Stars", category: "Cute", image: "https://images.unsplash.com/photo-1639024471283-03518883512d?auto=format&fit=crop&w=900&q=85" },
-  { id: "20", title: "Opal Shimmer", category: "Bridal", image: "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=900&q=85" },
-  { id: "21", title: "Vanilla Glaze", category: "Minimal", image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=85" },
-  { id: "22", title: "Pastel Daisy", category: "Floral", image: "https://images.unsplash.com/photo-1599847996307-e37b46842399?auto=format&fit=crop&w=900&q=85" },
-  { id: "23", title: "Golden Chrome", category: "Chrome", image: "https://images.unsplash.com/photo-1583001931096-959e9a1a6223?auto=format&fit=crop&w=900&q=85" },
-  { id: "24", title: "Mocha Cream", category: "Simple", image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=900&q=85" },
-  { id: "25", title: "Electric Sapphire", category: "Custom", image: "https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=900&q=85" },
-  { id: "26", title: "Diamond Accent", category: "Bridal", image: "https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=900&q=85" },
-  { id: "27", title: "Sage Botanica", category: "Floral", image: "https://images.unsplash.com/photo-1607779097040-26e80aa78e66?auto=format&fit=crop&w=900&q=85" },
-  { id: "28", title: "Metallic Pearl", category: "Chrome", image: "https://images.unsplash.com/photo-1610992015762-45dca7c1a0b8?auto=format&fit=crop&w=900&q=85" },
-  { id: "29", title: "Sunset Gradient", category: "Ombre", image: "https://images.unsplash.com/photo-1601924928376-7e4b5a1e4c8f?auto=format&fit=crop&w=900&q=85" },
-  { id: "30", title: "Minimalist Line Art", category: "Minimal", image: "https://images.unsplash.com/photo-1639024471283-03518883512d?auto=format&fit=crop&w=900&q=85" },
-  { id: "31", title: "Pink Quartz", category: "Luxury", image: "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=900&q=85" },
-  { id: "32", title: "Glitter Ombre", category: "Glitter", image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=85" },
-  { id: "33", title: "Terracotta Touch", category: "Simple", image: "https://images.unsplash.com/photo-1599847996307-e37b46842399?auto=format&fit=crop&w=900&q=85" },
-  { id: "34", title: "Vintage Lace", category: "Bridal", image: "https://images.unsplash.com/photo-1583001931096-959e9a1a6223?auto=format&fit=crop&w=900&q=85" },
-  { id: "35", title: "Honey Glow", category: "Cute", image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=900&q=85" },
-  { id: "36", title: "Platinum Mirror", category: "Chrome", image: "https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=900&q=85" },
-  { id: "37", title: "Coral Dream", category: "Floral", image: "https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=900&q=85" },
-  { id: "38", title: "Berry Mousse", category: "Simple", image: "https://images.unsplash.com/photo-1607779097040-26e80aa78e66?auto=format&fit=crop&w=900&q=85" },
-  { id: "39", title: "Crystal Cascade", category: "Bridal", image: "https://images.unsplash.com/photo-1610992015762-45dca7c1a0b8?auto=format&fit=crop&w=900&q=85" },
-  { id: "40", title: "Cosmic Dust", category: "Glitter", image: "https://images.unsplash.com/photo-1601924928376-7e4b5a1e4c8f?auto=format&fit=crop&w=900&q=85" },
-  { id: "41", title: "Butter Yellow", category: "Cute", image: "https://images.unsplash.com/photo-1639024471283-03518883512d?auto=format&fit=crop&w=900&q=85" },
-  { id: "42", title: "Frosted Lilac", category: "Ombre", image: "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=900&q=85" },
-  { id: "43", title: "Gothic Rose", category: "Custom", image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=85" },
-  { id: "44", title: "Pearl Tips", category: "French", image: "https://images.unsplash.com/photo-1599847996307-e37b46842399?auto=format&fit=crop&w=900&q=85" },
-  { id: "45", title: "Satin Silk", category: "Minimal", image: "https://images.unsplash.com/photo-1583001931096-959e9a1a6223?auto=format&fit=crop&w=900&q=85" },
-  { id: "46", title: "Aura Glow", category: "Ombre", image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=900&q=85" },
-  { id: "47", title: "Bronze Foil", category: "Luxury", image: "https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=900&q=85" },
-  { id: "48", title: "Minimal Dot", category: "Minimal", image: "https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=900&q=85" },
-  { id: "49", title: "Platinum Sparkle", category: "Glitter", image: "https://images.unsplash.com/photo-1607779097040-26e80aa78e66?auto=format&fit=crop&w=900&q=85" },
-  { id: "50", title: "Royal Velvet", category: "Luxury", image: "https://images.unsplash.com/photo-1610992015762-45dca7c1a0b8?auto=format&fit=crop&w=900&q=85" }
-];
-
-const defaultServices = [
-  { id: "1", name: "Classic Manicure", price: "₹499", text: "Clean, shape, cuticle care and a polished finish." },
-  { id: "2", name: "Gel Nails", price: "₹799", text: "Long-lasting gel colour with a glossy salon finish." },
-  { id: "3", name: "Nail Extensions", price: "₹1,299", text: "Elegant extensions shaped to complement your hands." },
-  { id: "4", name: "Custom Nail Art", price: "₹999+", text: "A personalised design created around your style." },
-  { id: "5", name: "Bridal Nails", price: "₹1,499+", text: "Pearls, shimmer and delicate details for your special day." },
-  { id: "6", name: "Removal + Care", price: "₹299", text: "Gentle removal followed by nourishing nail care." },
-  { id: "7", name: "BIAB Gel Overlay", price: "₹999", text: "Strong protective Builder-in-a-Bottle gel layer to nourish & lengthen natural nails." },
-  { id: "8", name: "Cat Eye Magnetic Gel", price: "₹1,199", text: "Mesmerizing 3D velvet shimmer effect created with magnetic gel polish." },
-  { id: "9", name: "Chrome Illusion", price: "₹1,099", text: "Ultra-reflective mirror chrome powder finish in silver, rose gold, or pearl." },
-  { id: "10", name: "French Tip Extensions", price: "₹1,499", text: "Timeless white, pastel, or deep accent French tips extended with gel or acrylic." },
-  { id: "11", name: "Express Polish Change", price: "₹599", text: "Quick nail shape, buffing, and fresh long-wear gel polish application." },
-  { id: "12", name: "Russian Dry Manicure", price: "₹899", text: "Precision e-file cuticle detailing for seamless, flawless polish alignment." },
-  { id: "13", name: "Luxury Hand Spa & Polish", price: "₹799", text: "Exfoliating botanical scrub, intense hydrating mask, relaxing massage & finish." },
-  { id: "14", name: "Nail Repair & Structuring", price: "₹199/nail", text: "Seamless repair for broken, split, or damaged natural nails." },
-  { id: "15", name: "Ombre Airbrush", price: "₹1,299", text: "Ultra-smooth gradient color transitions applied with micro airbrush technology." },
-  { id: "16", name: "Press-On Application & Prep", price: "₹699", text: "Professional nail sizing, prep, and long-wear adhesive application for custom press-ons." }
-];
-
 const getSavedData = (key, fallback) => {
   try {
     const saved = localStorage.getItem(key);
@@ -119,15 +47,15 @@ function App() {
   const [showPassword, setShowPassword] = useState(false);
   const [tripleClickCount, setTripleClickCount] = useState(0);
 
-  // 100% Supabase Data Fetching Function
+  // 100% Direct Supabase PostgreSQL Data Fetching
   const fetchSupabaseData = async () => {
     setLoading(true);
     setDbError(null);
 
     if (!supabase) {
       setDbError("Supabase client not initialized. Check your VITE_SUPABASE_ANON_KEY in .env");
-      setGallery(defaultGallery);
-      setServices(defaultServices);
+      setGallery([]);
+      setServices([]);
       setLoading(false);
       return;
     }
@@ -148,21 +76,19 @@ function App() {
       if (galleryErr || servicesErr) {
         const err = galleryErr || servicesErr;
         console.warn("Supabase query error:", err);
-        setDbError(`Supabase Notice: ${err.message}. (Run supabase_schema.sql in Supabase SQL Editor if tables do not exist yet)`);
-
-        // Fallback to sample data so UI stays functional
-        setGallery(defaultGallery);
-        setServices(defaultServices);
+        setDbError(`Supabase Notice: ${err.message}.`);
+        setGallery([]);
+        setServices([]);
       } else {
         // Use Supabase data directly
-        setGallery(galleryData && galleryData.length > 0 ? galleryData : defaultGallery);
-        setServices(servicesData && servicesData.length > 0 ? servicesData : defaultServices);
+        setGallery(galleryData || []);
+        setServices(servicesData || []);
       }
     } catch (err) {
       console.error("Supabase fetch exception:", err);
       setDbError("Unable to connect to Supabase PostgreSQL database.");
-      setGallery(defaultGallery);
-      setServices(defaultServices);
+      setGallery([]);
+      setServices([]);
     } finally {
       setLoading(false);
     }
