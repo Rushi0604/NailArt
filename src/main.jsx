@@ -376,7 +376,6 @@ Please confirm my appointment slot. Thank you!`;
               <button className="text-btn" onClick={() => scrollTo("work")}>Explore my work <ArrowRight size={17} /></button>
             </div>
             <div className="hero-meta">
-              <span><Clock3 size={17} /> By appointment</span>
               <a
                 href="https://maps.app.goo.gl/Tvty2a9xkozg1W7q9"
                 target="_blank"
