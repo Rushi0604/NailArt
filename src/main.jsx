@@ -157,17 +157,20 @@ function App() {
     });
   };
 
+  const todayDateStr = (() => {
+    const d = new Date();
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  })();
+
   const submitBooking = async (e) => {
     e.preventDefault();
-    const { name, phone, members, selectedServices, date, notes } = bookingForm;
+    const { name, members, selectedServices, date, notes } = bookingForm;
 
     if (!name.trim()) {
       alert("Please enter your name.");
-      return;
-    }
-
-    if (!phone || phone.replace(/\D/g, "").length !== 10) {
-      alert("Please enter a valid 10-digit mobile number.");
       return;
     }
 
@@ -181,6 +184,11 @@ function App() {
       return;
     }
 
+    if (date < todayDateStr) {
+      alert("Please select today or an upcoming date for your appointment.");
+      return;
+    }
+
     const servicesText = selectedServices.join(", ");
     const adminPhone = "918320802290";
     const textMessage =
@@ -189,7 +197,6 @@ function App() {
 I would like to request an appointment booking:
 
 Name: ${name}
-Phone/WhatsApp: ${phone}
 Number of People: ${members}
 Services Selected: ${servicesText}
 Preferred Date: ${date}
@@ -208,7 +215,6 @@ Please confirm my appointment slot. Thank you!`;
       try {
         await supabase.from("bookings").insert([{
           name,
-          phone,
           members,
           service: servicesText,
           date,
@@ -545,22 +551,13 @@ Please confirm my appointment slot. Thank you!`;
                 <h2>Let's book your <i>set.</i></h2>
                 <p>Send your preferred details and I'll get back to you to confirm the slot.</p>
                 <form onSubmit={submitBooking}>
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
+                  <div style={{ marginBottom: "10px" }}>
                     <input
                       required
                       placeholder="Your name"
                       value={bookingForm.name}
                       onChange={e => setBookingForm({ ...bookingForm, name: e.target.value })}
-                    />
-                    <input
-                      required
-                      type="tel"
-                      maxLength={10}
-                      pattern="[0-9]{10}"
-                      title="Please enter a valid 10-digit mobile number"
-                      placeholder="Phone (10 digits)"
-                      value={bookingForm.phone}
-                      onChange={e => setBookingForm({ ...bookingForm, phone: e.target.value.replace(/\D/g, "").slice(0, 10) })}
+                      style={{ width: "100%" }}
                     />
                   </div>
 
@@ -609,6 +606,7 @@ Please confirm my appointment slot. Thank you!`;
                     <input
                       required
                       type="date"
+                      min={todayDateStr}
                       value={bookingForm.date}
                       onChange={e => setBookingForm({ ...bookingForm, date: e.target.value })}
                     />
