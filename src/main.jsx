@@ -394,7 +394,7 @@ Please confirm my appointment slot. Thank you!`;
           </div>
           <div className="hero-art">
             <div className="hero-image-main">
-              <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1100&q=90" alt="Elegant nail art" />
+              <img src="https://lh3.googleusercontent.com/d/1WGdE75T2mX6QHAVoBXg66vi5hOzLbZMR" alt="Elegant nail art" />
             </div>
             <div className="hero-card">
               <span className="mini-heart"><Heart size={15} fill="currentColor" /></span>
