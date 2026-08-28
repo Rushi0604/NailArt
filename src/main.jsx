@@ -159,13 +159,25 @@ function App() {
 
   const submitBooking = async (e) => {
     e.preventDefault();
-    if (phone.replace(/\D/g, "").length !== 10) {
+    const { name, phone, members, selectedServices, date, notes } = bookingForm;
+
+    if (!name.trim()) {
+      alert("Please enter your name.");
+      return;
+    }
+
+    if (!phone || phone.replace(/\D/g, "").length !== 10) {
       alert("Please enter a valid 10-digit mobile number.");
       return;
     }
 
-    if (selectedServices.length === 0) {
+    if (!selectedServices || selectedServices.length === 0) {
       alert("Please select at least one service.");
+      return;
+    }
+
+    if (!date) {
+      alert("Please select your preferred appointment date.");
       return;
     }
 
@@ -188,6 +200,10 @@ Please confirm my appointment slot. Thank you!`;
     const whatsappUrl = `https://wa.me/${adminPhone}?text=${encodeURIComponent(textMessage)}`;
     setLastWhatsappUrl(whatsappUrl);
 
+    // Open WhatsApp link immediately so browsers don't block it as an async popup
+    window.open(whatsappUrl, "_blank");
+    setSent(true);
+
     if (supabase) {
       try {
         await supabase.from("bookings").insert([{
@@ -202,9 +218,6 @@ Please confirm my appointment slot. Thank you!`;
         console.warn("Supabase booking insert notice:", err);
       }
     }
-
-    setSent(true);
-    window.open(whatsappUrl, "_blank");
   };
 
   // Admin Gallery Handlers (100% Supabase)
