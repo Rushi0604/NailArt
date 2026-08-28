@@ -179,39 +179,199 @@ footer button { border:0; background:none; color:var(--muted); }
 .success h2 { margin-bottom:10px; }
 .success p { color:var(--muted); line-height:1.7; margin-bottom:25px; }
 
-@media (max-width: 900px) {
-  .nav-links { display:none; position:absolute; top:78px; left:0; right:0; background:var(--cream); padding:20px 8vw; border-bottom:1px solid var(--line); flex-direction:column; gap:20px; }
-  .nav-links.open { display:flex; }
-  .nav-book { display:none; }
-  .menu-btn { display:block; }
-  .hero { grid-template-columns:1fr; padding-top:50px; }
-  .hero-art { margin:0; max-width:600px; }
-  .intro-content,.about,.contact { grid-template-columns:1fr; gap:35px; }
-  .gallery { grid-template-columns:repeat(2,1fr); }
-  .gallery-item,.gallery-item:nth-child(2),.gallery-item:nth-child(5) { height:380px; }
-  .service-grid { grid-template-columns:1fr 1fr; }
+/* ==========================================================================
+   GLOBAL OVERFLOW PROTECTION
+   ========================================================================== */
+html, body { overflow-x: hidden; }
+.site { overflow-x: hidden; max-width: 100vw; }
+img { max-width: 100%; height: auto; }
+
+/* ==========================================================================
+   RESPONSIVE — TABLET (≤ 1024px)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .gallery { grid-template-columns: repeat(3, 1fr); }
+  .gallery-item, .gallery-item:nth-child(2), .gallery-item:nth-child(5) { height: 340px; }
+  .studio-features-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ==========================================================================
+   RESPONSIVE — SMALL TABLET / LARGE PHONE (≤ 900px)
+   ========================================================================== */
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 78px;
+    left: 0;
+    right: 0;
+    background: var(--cream);
+    padding: 20px 8vw;
+    border-bottom: 1px solid var(--line);
+    flex-direction: column;
+    gap: 6px;
+    z-index: 30;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links button {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    padding: 10px 0;
+  }
+  .nav-book { display: none; }
+  .menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 8px;
+  }
+  .hero { grid-template-columns: 1fr; padding-top: 50px; }
+  .hero-art { margin: 0; max-width: 600px; }
+  .intro-content, .about, .contact { grid-template-columns: 1fr; gap: 35px; }
+  .gallery { grid-template-columns: repeat(2, 1fr); }
+  .gallery-item, .gallery-item:nth-child(2), .gallery-item:nth-child(5) { height: 380px; }
+  .service-grid { grid-template-columns: 1fr 1fr; }
+  .studio-features-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .studio-stats { gap: 25px; flex-wrap: wrap; }
+  .about-image { max-width: 100%; }
+}
+
+/* ==========================================================================
+   RESPONSIVE — PHONE (≤ 600px)
+   ========================================================================== */
 @media (max-width: 600px) {
-  .nav { padding:0 5vw; }
-  .brand { font-size:12px; }
-  .hero { padding:45px 6vw 65px; }
-  h1 { font-size:54px; letter-spacing:-2px; }
-  .hero-actions { align-items:flex-start; flex-direction:column; }
-  .hero-meta { flex-direction:column; gap:10px; }
-  .hero-card { left:12px; bottom:15px; width:190px; }
-  .section { padding:75px 6vw; }
-  .section-head { display:block; }
-  .section-head > p { margin-top:15px; }
-  .gallery { grid-template-columns:1fr 1fr; gap:8px; }
-  .gallery-item,.gallery-item:nth-child(2),.gallery-item:nth-child(5) { height:270px; }
-  .gallery-overlay { padding:28px 12px 12px; }
-  .gallery-overlay strong { font-size:16px; }
-  .service-grid { grid-template-columns:1fr; }
-  .service-card { min-height:205px; }
-  .testimonial { padding:75px 6vw; }
-  .contact { gap:45px; }
-  footer { flex-direction:column; gap:15px; text-align:center; }
-  .booking-modal { padding:35px 22px; }
+  .nav { padding: 0 4vw; height: 64px; }
+  .nav-links { top: 64px; padding: 16px 6vw; }
+  .brand { font-size: 12px; gap: 8px; }
+  .brand-mark { width: 26px; height: 26px; }
+
+  /* Hero */
+  .hero { padding: 35px 5vw 55px; gap: 30px; }
+  h1 { font-size: clamp(38px, 11vw, 54px); letter-spacing: -1.5px; margin-bottom: 18px; }
+  .hero-copy > p { font-size: 14px; line-height: 1.7; }
+  .hero-actions { flex-direction: column; align-items: stretch; gap: 14px; margin: 24px 0 30px; }
+  .hero-actions .primary { justify-content: center; min-height: 48px; font-size: 14px; }
+  .hero-actions .text-btn { justify-content: center; min-height: 44px; }
+  .hero-meta { flex-direction: column; gap: 8px; }
+  .hero-card { left: 10px; bottom: 12px; width: 170px; padding: 14px; }
+  .hero-card strong { font-size: 15px; }
+  .hero-card small { font-size: 11px; }
+
+  /* Sections */
+  .section { padding: 60px 5vw; }
+  h2 { font-size: clamp(30px, 8vw, 42px); letter-spacing: -1px; }
+  .section-head { display: block; }
+  .section-head > p { margin-top: 12px; font-size: 13px; }
+
+  /* Gallery */
+  .gallery { grid-template-columns: 1fr 1fr; gap: 6px; }
+  .gallery-item, .gallery-item:nth-child(2), .gallery-item:nth-child(5) { height: 220px; }
+  .gallery-overlay { padding: 22px 10px 10px; }
+  .gallery-overlay span { font-size: 8px; }
+  .gallery-overlay strong { font-size: 14px; }
+  .filters { gap: 6px; }
+  .filters button { padding: 8px 12px; font-size: 11px; min-height: 36px; }
+
+  /* Services */
+  .service-grid { grid-template-columns: 1fr; }
+  .service-card { min-height: auto; padding: 24px 20px; }
+  .service-card h3 { font-size: 20px; }
+  .service-bottom button { min-height: 44px; min-width: 44px; padding: 8px; }
+
+  /* Studio features */
+  .studio-features-grid { grid-template-columns: 1fr; gap: 14px; margin-top: 35px; }
+  .feature-card { padding: 24px 20px; }
+  .feature-card h3 { font-size: 18px; }
+  .feature-card p { font-size: 12px; }
+
+  /* Studio stats */
+  .studio-stats { gap: 20px; flex-wrap: wrap; margin-top: 25px; padding-top: 20px; }
+  .stat-item strong { font-size: 24px; }
+  .stat-item span { font-size: 10px; }
+
+  /* Intro */
+  .intro-content p, .about-copy p, .section-head > p { font-size: 13px; line-height: 1.75; }
+
+  /* About */
+  .about-image { max-width: 100%; }
+  .signature { font-size: 26px; margin: 20px 0; }
+
+  /* Testimonial */
+  .testimonial { padding: 55px 5vw; }
+  blockquote { font-size: clamp(20px, 5vw, 28px); margin: 18px auto 24px; }
+  .quote-mark { font-size: 55px; }
+
+  /* Contact */
+  .contact { gap: 30px; }
+  .contact > div:first-child p { font-size: 13px; }
+  .contact-list a, .contact-list button {
+    padding: 16px 0;
+    min-height: 52px;
+    font-size: 14px;
+    gap: 8px;
+  }
+  .contact-list span { gap: 10px; font-size: 13px; word-break: break-word; }
+
+  /* Footer */
+  footer { flex-direction: column; gap: 12px; text-align: center; padding: 22px 5vw; }
+  footer div { flex-wrap: wrap; justify-content: center; }
+  footer button { min-height: 44px; padding: 8px 12px; font-size: 12px; }
+
+  /* Booking modal */
+  .booking-modal { padding: 30px 18px; width: min(560px, calc(100vw - 24px)); }
+  .booking-modal h2 { font-size: 30px; }
+  .booking-modal > p { font-size: 13px; }
+  .booking-modal input, .booking-modal select, .booking-modal textarea { padding: 12px; font-size: 14px; }
+  .primary { padding: 14px 18px; font-size: 14px; min-height: 48px; }
+  .modal-backdrop { padding: 12px; }
+
+  /* Service pills in modal */
+  .service-pills-grid { gap: 6px; }
+  .service-pill { padding: 7px 11px; font-size: 11px; }
+}
+
+/* ==========================================================================
+   RESPONSIVE — VERY SMALL PHONE (≤ 380px)
+   ========================================================================== */
+@media (max-width: 380px) {
+  .nav { padding: 0 3vw; }
+  .brand { font-size: 11px; gap: 6px; }
+  .brand-mark { width: 24px; height: 24px; }
+
+  .hero { padding: 28px 4vw 45px; }
+  h1 { font-size: 34px; letter-spacing: -1px; }
+  h2 { font-size: 26px; }
+
+  .section { padding: 50px 4vw; }
+
+  .gallery { gap: 4px; }
+  .gallery-item, .gallery-item:nth-child(2), .gallery-item:nth-child(5) { height: 180px; }
+  .gallery-overlay strong { font-size: 12px; }
+  .gallery-overlay span { font-size: 7px; }
+
+  .service-card { padding: 20px 16px; }
+  .service-card h3 { font-size: 18px; }
+
+  .hero-card { width: 150px; padding: 12px; left: 6px; bottom: 8px; }
+  .hero-card strong { font-size: 14px; }
+
+  .booking-modal { padding: 24px 14px; }
+  .booking-modal h2 { font-size: 26px; }
+
+  .signature { font-size: 22px; }
+
+  blockquote { font-size: 18px; }
+
+  .studio-stats { gap: 16px; }
+  .stat-item strong { font-size: 22px; }
+
+  .feature-card { padding: 20px 16px; }
+
+  footer { padding: 18px 4vw; font-size: 10px; }
 }
 
 /* ==========================================================================
@@ -500,6 +660,16 @@ footer button { border:0; background:none; color:var(--muted); }
     justify-content: flex-end;
     margin-top: 10px;
   }
+  .admin-top-bar h2 { font-size: 24px; }
+  .admin-top-bar { flex-wrap: wrap; gap: 12px; }
+}
+
+@media (max-width: 600px) {
+  .admin-modal { padding: 18px 14px; width: min(980px, calc(100vw - 20px)); }
+  .admin-tabs { gap: 4px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .admin-tab { padding: 10px 14px; font-size: 13px; white-space: nowrap; }
+  .admin-form-card { padding: 18px 14px; }
+  .admin-form-card h3 { font-size: 18px; }
 }
 
 /* Service Pills for Multi-Select Booking */
@@ -520,6 +690,7 @@ footer button { border:0; background:none; color:var(--muted); }
   gap: 6px;
   border-radius: 20px;
   transition: all 0.2s ease;
+  min-height: 36px;
 }
 .service-pill:hover {
   border-color: var(--rose-dark);
